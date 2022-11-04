@@ -3,12 +3,10 @@ import mongoose from 'mongoose';
 import multer from 'multer';
 
 import {postToolValidation, loginValidation, registerValidation} from './validations.js';
-import checkAuth from './utils/checkAuth.js';
 
+import { checkAuth, handleValidationErrors} from './utils/erector.js';
+import { UserController, PostController} from './controllers/erector.js'
 
-import * as UserController from './controllers/UserController.js'
-import * as PostController from './controllers/PostContoller.js'
-import handleValidationErrors from './utils/handleValidationErrors.js';
 
 mongoose.connect('mongodb+srv://nikita1:wwwwww@cluster0.7yahcpw.mongodb.net/shop?retryWrites=true&w=majority')
 .then(() => console.log('DB Connected'))
